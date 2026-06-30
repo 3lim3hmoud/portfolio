@@ -4,411 +4,380 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dr. Sarah Mitchell — Internal Medicine</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
   :root {
-    --teal:    #0A6E6E;
-    --teal-lt: #12908F;
-    --cream:   #F8F5F0;
-    --sand:    #E8E0D4;
-    --charcoal:#1C2325;
-    --mid:     #4A5568;
+    --teal:    #0B7A75;
+    --teal-lt: #0FA39C;
+    --teal-dk: #085E5A;
+    --teal-bg: #E8F5F5;
+    --cream:   #FAFAF8;
+    --sand:    #EAE4DA;
+    --charcoal:#1A2325;
+    --mid:     #5A6870;
     --white:   #FFFFFF;
-    --accent:  #C8956C;
+    --gold:    #C8864A;
+    --green:   #2D8A4E;
   }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--white);
-    color: var(--charcoal);
-    line-height: 1.6;
-  }
+  body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--charcoal); line-height: 1.6; overflow-x: hidden; }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--cream); }
+  ::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 3px; }
 
   /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 1.2rem 5%;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(8px);
+    padding: 1.1rem 6%;
+    background: rgba(250,250,248,0.97);
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--sand);
+    box-shadow: 0 1px 20px rgba(0,0,0,0.04);
   }
-  .logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem; font-weight: 700;
-    color: var(--teal);
-    text-decoration: none;
-  }
-  .logo span { color: var(--accent); }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    text-decoration: none; color: var(--mid);
-    font-size: 0.9rem; font-weight: 500;
-    transition: color 0.2s;
-  }
+  .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--teal); text-decoration: none; }
+  .logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--mid); font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
   .nav-links a:hover { color: var(--teal); }
-  .nav-btn {
-    background: var(--teal); color: var(--white);
-    padding: 0.6rem 1.4rem; border-radius: 50px;
-    text-decoration: none; font-size: 0.85rem; font-weight: 600;
-    transition: background 0.2s;
-  }
-  .nav-btn:hover { background: var(--teal-lt); }
+  .nav-btn { background: var(--teal); color: var(--white); padding: 0.6rem 1.5rem; border-radius: 50px; text-decoration: none; font-size: 0.82rem; font-weight: 600; transition: all 0.2s; }
+  .nav-btn:hover { background: var(--teal-lt); transform: translateY(-1px); }
 
   /* HERO */
   .hero {
-    min-height: 100vh;
-    display: grid; grid-template-columns: 1fr 1fr;
-    align-items: center;
-    padding: 8rem 5% 4rem;
-    background: var(--cream);
-    gap: 4rem;
+    min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; padding: 7rem 6% 4rem; gap: 5rem;
+    background: linear-gradient(135deg, var(--cream) 0%, var(--teal-bg) 100%);
+    position: relative; overflow: hidden;
   }
-  .hero-text { max-width: 520px; }
-  .hero-eyebrow {
-    display: inline-block;
-    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--accent);
-    margin-bottom: 1.2rem;
+  .hero::before {
+    content: ''; position: absolute; top: -100px; right: -100px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(11,122,117,0.08) 0%, transparent 70%);
   }
-  .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.4rem, 4vw, 3.6rem);
-    line-height: 1.15; font-weight: 700;
-    color: var(--charcoal);
-    margin-bottom: 1.2rem;
+  .hero::after {
+    content: ''; position: absolute; bottom: -80px; left: -80px;
+    width: 350px; height: 350px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,134,74,0.06) 0%, transparent 70%);
   }
-  .hero-title em { color: var(--teal); font-style: normal; }
-  .hero-sub {
-    font-size: 1.05rem; color: var(--mid);
-    margin-bottom: 2.2rem; max-width: 420px;
+  .hero-left { position: relative; z-index: 1; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: rgba(11,122,117,0.08); color: var(--teal);
+    padding: 0.45rem 1rem; border-radius: 50px;
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em;
+    margin-bottom: 1.5rem; border: 1px solid rgba(11,122,117,0.15);
   }
-  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--teal); color: var(--white);
-    padding: 0.85rem 2rem; border-radius: 50px;
-    text-decoration: none; font-weight: 600; font-size: 0.95rem;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .btn-primary:hover { background: var(--teal-lt); transform: translateY(-1px); }
-  .btn-secondary {
-    border: 2px solid var(--teal); color: var(--teal);
-    padding: 0.85rem 2rem; border-radius: 50px;
-    text-decoration: none; font-weight: 600; font-size: 0.95rem;
-    transition: all 0.2s;
-  }
+  .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 4vw, 3.6rem); font-weight: 700; line-height: 1.12; color: var(--charcoal); margin-bottom: 1.2rem; }
+  .hero-title em { color: var(--teal); font-style: normal; display: block; }
+  .hero-sub { font-size: 1rem; color: var(--mid); margin-bottom: 2rem; max-width: 440px; line-height: 1.85; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+  .btn-primary { background: var(--teal); color: var(--white); padding: 0.9rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; }
+  .btn-primary:hover { background: var(--teal-lt); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(11,122,117,0.3); }
+  .btn-secondary { border: 2px solid var(--teal); color: var(--teal); padding: 0.9rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.2s; }
   .btn-secondary:hover { background: var(--teal); color: var(--white); }
+  .trust-row { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .trust-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: var(--mid); }
+  .trust-item span:first-child { font-size: 1rem; }
 
-  .hero-stats {
-    display: flex; gap: 2.5rem; margin-top: 3rem;
-    padding-top: 2rem; border-top: 1px solid var(--sand);
-  }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem; font-weight: 700; color: var(--teal);
-  }
-  .stat-label { font-size: 0.8rem; color: var(--mid); margin-top: 0.2rem; }
-
-  .hero-image {
-    position: relative;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .hero-card {
-    background: var(--white);
-    border-radius: 24px;
-    padding: 3rem 2.5rem;
-    box-shadow: 0 20px 60px rgba(10,110,110,0.12);
-    text-align: center;
-    max-width: 340px; width: 100%;
-  }
-  .doctor-avatar {
-    width: 120px; height: 120px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--teal), var(--teal-lt));
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 1.5rem;
-    font-size: 3rem;
-  }
-  .doctor-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem; font-weight: 700;
-    color: var(--charcoal); margin-bottom: 0.3rem;
-  }
-  .doctor-title { font-size: 0.85rem; color: var(--mid); margin-bottom: 1.5rem; }
-  .badge-row { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
-  .badge {
-    background: var(--cream); color: var(--teal);
-    padding: 0.35rem 0.9rem; border-radius: 50px;
-    font-size: 0.75rem; font-weight: 600;
+  /* HERO RIGHT */
+  .hero-right { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 1rem; }
+  .doctor-card {
+    background: var(--white); border-radius: 20px; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(11,122,117,0.12), 0 4px 15px rgba(0,0,0,0.05);
     border: 1px solid var(--sand);
   }
-  .available-dot {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    margin-top: 1.5rem; font-size: 0.8rem; color: #2D7A3A; font-weight: 500;
-  }
-  .dot { width: 8px; height: 8px; border-radius: 50%; background: #2D7A3A; animation: pulse 2s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  .doctor-img-wrap { position: relative; height: 280px; overflow: hidden; }
+  .doctor-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .doctor-img-wrap::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to top, var(--white), transparent); }
+  .doctor-info { padding: 1.5rem 2rem 2rem; }
+  .doctor-name { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--charcoal); }
+  .doctor-spec { font-size: 0.82rem; color: var(--mid); margin: 0.3rem 0 1rem; }
+  .badge-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .badge { background: var(--teal-bg); color: var(--teal); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.72rem; font-weight: 600; border: 1px solid rgba(11,122,117,0.15); }
+  .avail { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: var(--green); font-weight: 600; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+
+  .stats-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
+  .stat-card { background: var(--white); border-radius: 14px; padding: 1.2rem; text-align: center; border: 1px solid var(--sand); box-shadow: 0 4px 15px rgba(0,0,0,0.04); }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--teal); }
+  .stat-lbl { font-size: 0.7rem; color: var(--mid); margin-top: 0.2rem; }
+
+  /* SECTION COMMONS */
+  .eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 0.6rem; }
+  .sec-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; color: var(--charcoal); margin-bottom: 0.8rem; line-height: 1.2; }
+  .sec-sub { font-size: 0.92rem; color: var(--mid); line-height: 1.85; }
+
+  /* PHOTO STRIP */
+  .photo-strip { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; height: 280px; gap: 4px; }
+  .photo-item { overflow: hidden; }
+  .photo-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease, filter 0.3s; filter: brightness(0.9) saturate(0.85); }
+  .photo-item:hover img { transform: scale(1.06); filter: brightness(1) saturate(1); }
 
   /* SERVICES */
-  .services { padding: 6rem 5%; background: var(--white); }
-  .section-label {
-    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--accent);
-    margin-bottom: 0.8rem;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 3vw, 2.6rem);
-    font-weight: 700; color: var(--charcoal);
-    margin-bottom: 1rem;
-  }
-  .section-sub { font-size: 1rem; color: var(--mid); max-width: 500px; margin-bottom: 3rem; }
-
-  .services-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
-  }
+  .services { padding: 6rem 6%; background: var(--white); }
+  .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; gap: 2rem; flex-wrap: wrap; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
   .service-card {
-    background: var(--cream);
-    border-radius: 16px; padding: 2rem 1.8rem;
-    border: 1px solid var(--sand);
-    transition: transform 0.2s, box-shadow 0.2s;
-    cursor: default;
+    background: var(--cream); border-radius: 16px; padding: 2rem 1.8rem;
+    border: 1.5px solid var(--sand); transition: all 0.25s; cursor: default; position: relative; overflow: hidden;
   }
-  .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(10,110,110,0.1); }
-  .service-icon { font-size: 2.2rem; margin-bottom: 1rem; }
-  .service-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem; font-weight: 600;
-    color: var(--charcoal); margin-bottom: 0.5rem;
-  }
-  .service-desc { font-size: 0.88rem; color: var(--mid); line-height: 1.6; }
+  .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(to right, var(--teal), var(--teal-lt)); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+  .service-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(11,122,117,0.1); border-color: rgba(11,122,117,0.2); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .svc-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+  .svc-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.5rem; }
+  .svc-desc { font-size: 0.83rem; color: var(--mid); line-height: 1.7; margin-bottom: 1rem; }
+  .svc-tag { font-size: 0.7rem; color: var(--teal); font-weight: 600; }
 
   /* ABOUT */
-  .about {
-    padding: 6rem 5%;
-    background: var(--teal);
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 5rem; align-items: center;
-  }
-  .about-text .section-label { color: var(--accent); }
-  .about-text .section-title { color: var(--white); }
-  .about-text .section-sub { color: rgba(255,255,255,0.75); max-width: 100%; }
-  .about-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
-  .about-list li {
-    display: flex; align-items: center; gap: 0.8rem;
-    color: rgba(255,255,255,0.9); font-size: 0.95rem;
-  }
-  .about-list li::before { content: '✓'; color: var(--accent); font-weight: 700; font-size: 1.1rem; }
-  .about-image-area {
-    background: rgba(255,255,255,0.08);
-    border-radius: 20px; padding: 2.5rem;
-    border: 1px solid rgba(255,255,255,0.15);
-  }
-  .exp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-  .exp-item { text-align: center; padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 12px; }
-  .exp-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--white); }
-  .exp-label { font-size: 0.8rem; color: rgba(255,255,255,0.7); margin-top: 0.3rem; }
+  .about { padding: 6rem 6%; background: var(--charcoal); display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .about-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .about-img { border-radius: 12px; overflow: hidden; }
+  .about-img img { width: 100%; height: 220px; object-fit: cover; filter: brightness(0.85) saturate(0.8); transition: all 0.4s; }
+  .about-img:hover img { filter: brightness(1) saturate(1); transform: scale(1.03); }
+  .about-img.tall img { height: 460px; }
+  .about-col { display: grid; grid-template-rows: 1fr 1fr; gap: 1rem; }
+  .about-text .eyebrow { color: var(--gold); }
+  .about-text .sec-title { color: var(--white); }
+  .about-text .sec-sub { color: rgba(255,255,255,0.6); max-width: 100%; }
+  .about-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; margin-top: 1.8rem; }
+  .about-list li { display: flex; align-items: flex-start; gap: 0.8rem; font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.6; }
+  .about-list li::before { content: '✓'; color: var(--teal-lt); font-weight: 700; flex-shrink: 0; margin-top: 0.1rem; }
+  .credentials { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+  .cred-item { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 1.2rem; }
+  .cred-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--teal-lt); }
+  .cred-lbl { font-size: 0.72rem; color: rgba(255,255,255,0.5); margin-top: 0.2rem; }
+
+  /* TESTIMONIALS */
+  .testimonials { padding: 6rem 6%; background: var(--teal-bg); text-align: center; }
+  .test-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
+  .test-card { background: var(--white); border-radius: 16px; padding: 2rem; border: 1px solid var(--sand); text-align: left; transition: box-shadow 0.2s; }
+  .test-card:hover { box-shadow: 0 10px 30px rgba(11,122,117,0.1); }
+  .stars { color: #F5A623; font-size: 0.9rem; margin-bottom: 1rem; }
+  .test-text { font-size: 0.87rem; color: var(--mid); line-height: 1.8; font-style: italic; margin-bottom: 1.5rem; }
+  .test-author { font-size: 0.82rem; font-weight: 600; color: var(--charcoal); }
+  .test-detail { font-size: 0.72rem; color: var(--mid); margin-top: 0.2rem; }
 
   /* BOOKING */
-  .booking { padding: 6rem 5%; background: var(--cream); }
-  .booking-inner {
-    max-width: 700px; margin: 0 auto; text-align: center;
-  }
-  .booking-form {
-    background: var(--white);
-    border-radius: 20px; padding: 2.5rem;
-    box-shadow: 0 8px 40px rgba(10,110,110,0.08);
-    margin-top: 2.5rem; text-align: left;
-  }
+  .booking { padding: 6rem 6%; background: var(--white); }
+  .booking-inner { display: grid; grid-template-columns: 1fr 1.3fr; gap: 5rem; align-items: start; }
+  .booking-info .sec-sub { max-width: 100%; margin-top: 1rem; margin-bottom: 2.5rem; }
+  .info-block { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
+  .info-ico { width: 42px; height: 42px; background: var(--teal-bg); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+  .info-lbl { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mid); }
+  .info-val { font-size: 0.9rem; color: var(--charcoal); margin-top: 0.2rem; line-height: 1.6; }
+  .booking-form { background: var(--cream); border-radius: 20px; padding: 2.5rem; border: 1.5px solid var(--sand); }
   .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-  .form-group.full { grid-column: 1 / -1; }
-  label { font-size: 0.82rem; font-weight: 600; color: var(--charcoal); }
-  input, select, textarea {
-    border: 1.5px solid var(--sand);
-    border-radius: 10px; padding: 0.75rem 1rem;
-    font-family: 'Inter', sans-serif; font-size: 0.9rem;
-    color: var(--charcoal); background: var(--cream);
-    transition: border-color 0.2s;
-    outline: none;
-  }
-  input:focus, select:focus, textarea:focus { border-color: var(--teal); background: var(--white); }
-  textarea { resize: vertical; min-height: 100px; }
-  .submit-btn {
-    width: 100%; background: var(--teal); color: var(--white);
-    border: none; padding: 1rem; border-radius: 10px;
-    font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600;
-    cursor: pointer; margin-top: 1.2rem;
-    transition: background 0.2s;
-  }
-  .submit-btn:hover { background: var(--teal-lt); }
-
-  /* CONTACT */
-  .contact { padding: 6rem 5%; background: var(--white); }
-  .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem; }
-  .contact-card {
-    text-align: center; padding: 2rem 1.5rem;
-    border: 1.5px solid var(--sand); border-radius: 16px;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-  .contact-card:hover { border-color: var(--teal); box-shadow: 0 8px 30px rgba(10,110,110,0.08); }
-  .contact-icon { font-size: 2rem; margin-bottom: 1rem; }
-  .contact-type { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mid); margin-bottom: 0.4rem; }
-  .contact-value { font-size: 0.95rem; color: var(--charcoal); font-weight: 500; }
+  .form-group { display: flex; flex-direction: column; gap: 0.45rem; }
+  .form-group.full { grid-column: 1/-1; }
+  label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mid); }
+  input, select, textarea { background: var(--white); border: 1.5px solid var(--sand); border-radius: 10px; padding: 0.8rem 1rem; font-family: 'Inter', sans-serif; font-size: 0.88rem; color: var(--charcoal); outline: none; transition: border-color 0.2s, box-shadow 0.2s; width: 100%; }
+  input:focus, select:focus, textarea:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(11,122,117,0.08); }
+  input::placeholder, textarea::placeholder { color: #B0BEC5; }
+  textarea { resize: vertical; min-height: 90px; }
+  select option { background: var(--white); }
+  .submit-btn { width: 100%; background: var(--teal); color: var(--white); border: none; padding: 1rem; border-radius: 10px; font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 700; cursor: pointer; margin-top: 1rem; transition: all 0.2s; letter-spacing: 0.03em; }
+  .submit-btn:hover { background: var(--teal-lt); transform: translateY(-1px); box-shadow: 0 8px 25px rgba(11,122,117,0.25); }
 
   /* FOOTER */
-  footer {
-    background: var(--charcoal); color: rgba(255,255,255,0.6);
-    text-align: center; padding: 2rem 5%;
-    font-size: 0.85rem;
-  }
-  footer strong { color: var(--white); }
+  footer { background: var(--charcoal); padding: 3.5rem 6%; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--teal-lt); font-weight: 700; margin-bottom: 0.8rem; }
+  .footer-desc { font-size: 0.82rem; color: rgba(255,255,255,0.4); line-height: 1.8; max-width: 220px; }
+  .footer-col h4 { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.6); margin-bottom: 1.2rem; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+  .footer-col ul li { font-size: 0.82rem; color: rgba(255,255,255,0.35); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: rgba(255,255,255,0.3); flex-wrap: wrap; gap: 1rem; }
 
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    .hero { grid-template-columns: 1fr; padding: 7rem 5% 4rem; text-align: center; }
-    .hero-sub { margin: 0 auto 2rem; }
-    .hero-actions { justify-content: center; }
-    .hero-stats { justify-content: center; }
-    .hero-image { display: none; }
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: 7rem 6% 4rem; }
+    .hero-right { display: none; }
+    .photo-strip { grid-template-columns: 1fr 1fr; height: auto; }
+    .photo-item { height: 160px; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
     .about { grid-template-columns: 1fr; }
-    .form-grid { grid-template-columns: 1fr; }
+    .about-imgs { display: none; }
+    .test-grid { grid-template-columns: 1fr; }
+    .booking-inner { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
     .nav-links { display: none; }
+    .form-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a class="logo" href="#">Dr. Sarah <span>Mitchell</span></a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#reviews">Reviews</a></li>
     <li><a href="#booking">Appointments</a></li>
-    <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="#booking" class="nav-btn">Book Now</a>
+  <a href="#booking" class="nav-btn">Book Now →</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-text">
-    <span class="hero-eyebrow">Internal Medicine Specialist</span>
-    <h1 class="hero-title">Your health deserves <em>expert</em> care</h1>
-    <p class="hero-sub">Compassionate, evidence-based medicine tailored to each patient. Dr. Mitchell brings 15 years of experience to every consultation.</p>
+  <div class="hero-left">
+    <div class="hero-tag">🏥 Internal Medicine Specialist · NYC</div>
+    <h1 class="hero-title">Expert care for<em>a healthier you</em></h1>
+    <p class="hero-sub">Dr. Sarah Mitchell brings 15 years of evidence-based internal medicine to every consultation. Compassionate, thorough, and always putting patients first.</p>
     <div class="hero-actions">
-      <a href="#booking" class="btn-primary">Book Appointment</a>
+      <a href="#booking" class="btn-primary">📅 Book Appointment</a>
       <a href="#services" class="btn-secondary">Our Services</a>
     </div>
-    <div class="hero-stats">
-      <div>
-        <div class="stat-num">15+</div>
-        <div class="stat-label">Years Experience</div>
-      </div>
-      <div>
-        <div class="stat-num">4.9★</div>
-        <div class="stat-label">Patient Rating</div>
-      </div>
-      <div>
-        <div class="stat-num">3,200+</div>
-        <div class="stat-label">Patients Treated</div>
-      </div>
+    <div class="trust-row">
+      <div class="trust-item"><span>✅</span><span>Board Certified</span></div>
+      <div class="trust-item"><span>⭐</span><span>4.9 Rating</span></div>
+      <div class="trust-item"><span>🏆</span><span>Top Doctor 2024</span></div>
+      <div class="trust-item"><span>💳</span><span>All Insurance Accepted</span></div>
     </div>
   </div>
 
-  <div class="hero-image">
-    <div class="hero-card">
-      <div class="doctor-avatar">👩‍⚕️</div>
-      <div class="doctor-name">Dr. Sarah Mitchell</div>
-      <div class="doctor-title">MD, FACP — Internal Medicine</div>
-      <div class="badge-row">
-        <span class="badge">Board Certified</span>
-        <span class="badge">FACP Fellow</span>
-        <span class="badge">15 Yrs Exp.</span>
+  <div class="hero-right">
+    <div class="doctor-card">
+      <div class="doctor-img-wrap">
+        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80" alt="Dr. Sarah Mitchell">
       </div>
-      <div class="available-dot"><span class="dot"></span> Accepting new patients</div>
+      <div class="doctor-info">
+        <div class="doctor-name">Dr. Sarah Mitchell</div>
+        <div class="doctor-spec">MD, FACP — Internal Medicine & Preventive Care</div>
+        <div class="badge-row">
+          <span class="badge">Board Certified</span>
+          <span class="badge">FACP Fellow</span>
+          <span class="badge">Johns Hopkins MD</span>
+        </div>
+        <div class="avail"><span class="dot"></span> Accepting new patients</div>
+      </div>
+    </div>
+    <div class="stats-row">
+      <div class="stat-card"><div class="stat-num">15+</div><div class="stat-lbl">Years Experience</div></div>
+      <div class="stat-card"><div class="stat-num">3,200+</div><div class="stat-lbl">Patients Treated</div></div>
+      <div class="stat-card"><div class="stat-num">4.9★</div><div class="stat-lbl">Avg. Rating</div></div>
     </div>
   </div>
 </section>
 
+<!-- PHOTO STRIP -->
+<div class="photo-strip">
+  <div class="photo-item"><img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&q=80" alt="Modern clinic"></div>
+  <div class="photo-item"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&q=80" alt="Doctor consultation"></div>
+  <div class="photo-item"><img src="https://images.unsplash.com/photo-1666214280577-5b24e2e7b8d7?w=400&q=80" alt="Medical equipment"></div>
+  <div class="photo-item"><img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=400&q=80" alt="Healthcare"></div>
+</div>
+
 <!-- SERVICES -->
 <section class="services" id="services">
-  <div class="section-label">What We Offer</div>
-  <h2 class="section-title">Comprehensive Medical Services</h2>
-  <p class="section-sub">From routine check-ups to chronic disease management, we provide full-spectrum internal medicine care.</p>
-
+  <div class="services-header">
+    <div>
+      <span class="eyebrow">What We Offer</span>
+      <h2 class="sec-title">Comprehensive medical care</h2>
+    </div>
+    <p class="sec-sub" style="max-width:380px">From routine check-ups to complex chronic disease management, we provide full-spectrum internal medicine.</p>
+  </div>
   <div class="services-grid">
     <div class="service-card">
-      <div class="service-icon">🫀</div>
-      <div class="service-name">Cardiovascular Health</div>
-      <div class="service-desc">Hypertension management, lipid control, and heart disease prevention with personalized treatment plans.</div>
+      <div class="svc-icon">🫀</div>
+      <div class="svc-name">Cardiovascular Health</div>
+      <div class="svc-desc">Hypertension management, lipid control, and heart disease prevention with personalized treatment plans tailored to your lifestyle.</div>
+      <div class="svc-tag">→ Includes EKG & stress testing</div>
     </div>
     <div class="service-card">
-      <div class="service-icon">🩸</div>
-      <div class="service-name">Diabetes Management</div>
-      <div class="service-desc">Comprehensive diabetes care including Type 1 & 2, insulin therapy, and lifestyle coaching.</div>
+      <div class="svc-icon">🩸</div>
+      <div class="svc-name">Diabetes Management</div>
+      <div class="svc-desc">Comprehensive care for Type 1 & 2 diabetes including insulin therapy, CGM setup, and nutritional coaching for long-term control.</div>
+      <div class="svc-tag">→ HbA1c monitoring included</div>
     </div>
     <div class="service-card">
-      <div class="service-icon">🫁</div>
-      <div class="service-name">Respiratory Care</div>
-      <div class="service-desc">Diagnosis and treatment of asthma, COPD, and chronic respiratory conditions.</div>
+      <div class="svc-icon">🫁</div>
+      <div class="svc-name">Respiratory Care</div>
+      <div class="svc-desc">Diagnosis and long-term management of asthma, COPD, chronic bronchitis, and other respiratory conditions with spirometry testing.</div>
+      <div class="svc-tag">→ Pulmonary function tests</div>
     </div>
     <div class="service-card">
-      <div class="service-icon">🔬</div>
-      <div class="service-name">Preventive Screenings</div>
-      <div class="service-desc">Annual health screenings, lab work interpretation, and early detection programs.</div>
+      <div class="svc-icon">🔬</div>
+      <div class="svc-name">Preventive Screenings</div>
+      <div class="svc-desc">Comprehensive annual health screenings, lab work interpretation, cancer markers, and early detection programs for all age groups.</div>
+      <div class="svc-tag">→ Full lab panel in 24hrs</div>
     </div>
     <div class="service-card">
-      <div class="service-icon">💊</div>
-      <div class="service-name">Chronic Disease Care</div>
-      <div class="service-desc">Long-term management of thyroid disorders, autoimmune conditions, and more.</div>
+      <div class="svc-icon">🧬</div>
+      <div class="svc-name">Chronic Disease Care</div>
+      <div class="svc-desc">Expert long-term management of thyroid disorders, autoimmune conditions, kidney disease, and other complex chronic illnesses.</div>
+      <div class="svc-tag">→ Multidisciplinary approach</div>
     </div>
     <div class="service-card">
-      <div class="service-icon">🩺</div>
-      <div class="service-name">General Check-ups</div>
-      <div class="service-desc">Thorough annual physicals and wellness exams to keep you at your healthiest.</div>
+      <div class="svc-icon">🩺</div>
+      <div class="svc-name">Annual Check-ups</div>
+      <div class="svc-desc">Thorough yearly physicals, wellness exams, vaccination updates, and personalized health risk assessments to keep you at your best.</div>
+      <div class="svc-tag">→ Same-week appointments</div>
     </div>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section class="about" id="about">
-  <div class="about-text">
-    <div class="section-label">About the Doctor</div>
-    <h2 class="section-title">Medicine with purpose and precision</h2>
-    <p class="section-sub">Dr. Sarah Mitchell graduated from Johns Hopkins School of Medicine and completed her residency at Mayo Clinic. She believes in treating the whole person, not just the diagnosis.</p>
-    <ul class="about-list">
-      <li>MD from Johns Hopkins School of Medicine</li>
-      <li>Residency completed at Mayo Clinic</li>
-      <li>Fellow of the American College of Physicians</li>
-      <li>Published researcher in preventive cardiology</li>
-      <li>Bilingual consultations (English & Spanish)</li>
-    </ul>
+  <div class="about-imgs">
+    <div class="about-img tall">
+      <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=500&q=80" alt="Doctor">
+    </div>
+    <div class="about-col">
+      <div class="about-img">
+        <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=400&q=80" alt="Clinic">
+      </div>
+      <div class="about-img">
+        <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=400&q=80" alt="Healthcare">
+      </div>
+    </div>
   </div>
-  <div class="about-image-area">
-    <div class="exp-grid">
-      <div class="exp-item">
-        <div class="exp-num">15+</div>
-        <div class="exp-label">Years in Practice</div>
-      </div>
-      <div class="exp-item">
-        <div class="exp-num">3,200+</div>
-        <div class="exp-label">Patients Served</div>
-      </div>
-      <div class="exp-item">
-        <div class="exp-num">12</div>
-        <div class="exp-label">Published Papers</div>
-      </div>
-      <div class="exp-item">
-        <div class="exp-num">4.9★</div>
-        <div class="exp-label">Average Rating</div>
-      </div>
+  <div class="about-text">
+    <span class="eyebrow">About the Doctor</span>
+    <h2 class="sec-title" style="color:var(--white)">Medicine with purpose and precision</h2>
+    <p class="sec-sub" style="color:rgba(255,255,255,0.6);max-width:100%">Dr. Sarah Mitchell graduated from Johns Hopkins School of Medicine and completed her residency at Mayo Clinic. She believes in treating the whole person, not just the diagnosis — combining cutting-edge evidence with genuine human compassion.</p>
+    <ul class="about-list">
+      <li>MD from Johns Hopkins School of Medicine, Class of 2009</li>
+      <li>Residency & Fellowship completed at Mayo Clinic, Rochester</li>
+      <li>Fellow of the American College of Physicians (FACP)</li>
+      <li>Published researcher in preventive cardiology (12 papers)</li>
+      <li>Named Top Doctor NYC by Castle Connolly 2021–2024</li>
+      <li>Bilingual consultations available (English & Spanish)</li>
+    </ul>
+    <div class="credentials">
+      <div class="cred-item"><div class="cred-num">15+</div><div class="cred-lbl">Years in Practice</div></div>
+      <div class="cred-item"><div class="cred-num">3,200+</div><div class="cred-lbl">Patients Served</div></div>
+      <div class="cred-item"><div class="cred-num">12</div><div class="cred-lbl">Published Papers</div></div>
+      <div class="cred-item"><div class="cred-num">4.9★</div><div class="cred-lbl">Average Rating</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="reviews">
+  <span class="eyebrow">Patient Reviews</span>
+  <h2 class="sec-title">What our patients say</h2>
+  <div class="test-grid">
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p class="test-text">"Dr. Mitchell completely changed how I manage my diabetes. She took the time to explain everything, set up a CGM for me, and I've had my best HbA1c in years. She genuinely cares about her patients."</p>
+      <div class="test-author">Maria S.</div>
+      <div class="test-detail">Patient since 2021 · Diabetes Management</div>
+    </div>
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p class="test-text">"I had been dismissing chest pains for months. Dr. Mitchell caught a serious cardiac issue in my very first visit. Her thoroughness literally saved my life. I cannot recommend her highly enough."</p>
+      <div class="test-author">Robert T.</div>
+      <div class="test-detail">Patient since 2022 · Cardiovascular Care</div>
+    </div>
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p class="test-text">"After years of seeing different doctors with no real answers, Dr. Mitchell finally diagnosed my autoimmune condition and created a treatment plan that works. The clinic staff are wonderful too."</p>
+      <div class="test-author">Jennifer L.</div>
+      <div class="test-detail">Patient since 2020 · Chronic Disease Care</div>
     </div>
   </div>
 </section>
@@ -416,83 +385,89 @@
 <!-- BOOKING -->
 <section class="booking" id="booking">
   <div class="booking-inner">
-    <div class="section-label">Appointments</div>
-    <h2 class="section-title">Book your consultation</h2>
-    <p class="section-sub" style="margin: 0 auto 0;">We'll confirm your appointment within 24 hours. Same-day slots available for urgent cases.</p>
+    <div class="booking-info">
+      <span class="eyebrow">Appointments</span>
+      <h2 class="sec-title">Book your consultation</h2>
+      <p class="sec-sub">We'll confirm your appointment within 2 hours. Same-day and next-day slots available for urgent medical concerns.</p>
+      <div class="info-block">
+        <div class="info-ico">📍</div>
+        <div><div class="info-lbl">Address</div><div class="info-val">245 Wellness Blvd, Suite 3<br>New York, NY 10001</div></div>
+      </div>
+      <div class="info-block">
+        <div class="info-ico">🕐</div>
+        <div><div class="info-lbl">Hours</div><div class="info-val">Mon–Fri: 8:00am – 6:00pm<br>Saturday: 9:00am – 1:00pm</div></div>
+      </div>
+      <div class="info-block">
+        <div class="info-ico">📞</div>
+        <div><div class="info-lbl">Phone</div><div class="info-val">+1 (212) 555-0182</div></div>
+      </div>
+      <div class="info-block">
+        <div class="info-ico">💳</div>
+        <div><div class="info-lbl">Insurance</div><div class="info-val">All major insurance plans accepted<br>Self-pay options available</div></div>
+      </div>
+    </div>
     <div class="booking-form">
       <div class="form-grid">
-        <div class="form-group">
-          <label>First Name</label>
-          <input type="text" placeholder="Sarah">
-        </div>
-        <div class="form-group">
-          <label>Last Name</label>
-          <input type="text" placeholder="Johnson">
-        </div>
-        <div class="form-group">
-          <label>Phone Number</label>
-          <input type="tel" placeholder="+1 (555) 000-0000">
-        </div>
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" placeholder="sarah@email.com">
-        </div>
-        <div class="form-group">
-          <label>Preferred Date</label>
-          <input type="date">
-        </div>
-        <div class="form-group">
-          <label>Service Type</label>
+        <div class="form-group"><label>First Name</label><input type="text" placeholder="Sarah"></div>
+        <div class="form-group"><label>Last Name</label><input type="text" placeholder="Johnson"></div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+1 (555) 000-0000"></div>
+        <div class="form-group"><label>Email Address</label><input type="email" placeholder="sarah@email.com"></div>
+        <div class="form-group"><label>Preferred Date</label><input type="date"></div>
+        <div class="form-group"><label>Preferred Time</label>
           <select>
-            <option>General Check-up</option>
+            <option>8:00 AM</option><option>9:00 AM</option><option>10:00 AM</option>
+            <option>11:00 AM</option><option>1:00 PM</option><option>2:00 PM</option>
+            <option>3:00 PM</option><option>4:00 PM</option><option>5:00 PM</option>
+          </select>
+        </div>
+        <div class="form-group full"><label>Service Type</label>
+          <select>
+            <option>General Check-up / Annual Physical</option>
             <option>Cardiovascular Health</option>
             <option>Diabetes Management</option>
             <option>Respiratory Care</option>
-            <option>Chronic Disease Care</option>
+            <option>Chronic Disease Management</option>
             <option>Preventive Screening</option>
+            <option>Urgent Consultation</option>
           </select>
         </div>
-        <div class="form-group full">
-          <label>Additional Notes</label>
-          <textarea placeholder="Describe your symptoms or concerns..."></textarea>
-        </div>
+        <div class="form-group full"><label>Symptoms / Notes</label><textarea placeholder="Describe your symptoms or reason for visit..."></textarea></div>
       </div>
       <button class="submit-btn">Request Appointment →</button>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="section-label">Get In Touch</div>
-  <h2 class="section-title">Find us</h2>
-  <div class="contact-grid">
-    <div class="contact-card">
-      <div class="contact-icon">📍</div>
-      <div class="contact-type">Address</div>
-      <div class="contact-value">245 Wellness Blvd, Suite 3<br>New York, NY 10001</div>
-    </div>
-    <div class="contact-card">
-      <div class="contact-icon">📞</div>
-      <div class="contact-type">Phone</div>
-      <div class="contact-value">+1 (212) 555-0182</div>
-    </div>
-    <div class="contact-card">
-      <div class="contact-icon">✉️</div>
-      <div class="contact-type">Email</div>
-      <div class="contact-value">dr.mitchell@clinic.com</div>
-    </div>
-    <div class="contact-card">
-      <div class="contact-icon">🕐</div>
-      <div class="contact-type">Hours</div>
-      <div class="contact-value">Mon–Fri: 8am – 6pm<br>Sat: 9am – 1pm</div>
-    </div>
-  </div>
-</section>
-
 <!-- FOOTER -->
 <footer>
-  <p>© 2024 <strong>Dr. Sarah Mitchell MD</strong> — Internal Medicine Practice. All rights reserved.</p>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">Dr. Sarah Mitchell</div>
+      <p class="footer-desc">Board-certified internal medicine specialist serving New York City since 2009. Accepting new patients.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li>Cardiovascular Health</li><li>Diabetes Care</li><li>Preventive Screenings</li><li>Chronic Disease</li><li>Annual Check-ups</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Hours</h4>
+      <ul>
+        <li>Mon–Fri: 8am–6pm</li><li>Saturday: 9am–1pm</li><li>Sunday: Closed</li><li>Urgent: Call us</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li>+1 (212) 555-0182</li><li>dr.mitchell@clinic.com</li><li>245 Wellness Blvd, NYC</li><li>Suite 3, NY 10001</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Dr. Sarah Mitchell MD — Internal Medicine. All rights reserved.</span>
+    <span>Privacy Policy · HIPAA Compliant</span>
+  </div>
 </footer>
 
 </body>
